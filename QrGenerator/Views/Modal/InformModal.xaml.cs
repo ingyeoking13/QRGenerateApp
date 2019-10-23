@@ -14,7 +14,7 @@ namespace QrGenerator.Views.Modal
 
         private void GithubLink_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.naver.com");
+            System.Diagnostics.Process.Start("https://github.com/ingyeoking13/QRGenerateApp");
         }
     }
 }
