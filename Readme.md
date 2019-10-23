@@ -4,6 +4,6 @@
 
 Generate QRCode    
 
-![.](images/capture1.png)
-![.](images/capture2.png)
-![.](images/capture3.png)
+![.](images/capture1.PNG)  
+![.](images/capture2.PNG)  
+![.](images/capture3.PNG)  
