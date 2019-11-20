@@ -1,0 +1,85 @@
+﻿<Window
+    x:Class="PCcafe_food_order_App_client.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PCcafe_food_order_App_client"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:PCcafe_food_order_App_client.Views"
+    Title="MainWindow"
+    Width="1200"
+    Height="640"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style x:Key="NavListViewStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="900" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="440" />
+            <RowDefinition Height="160" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+            <TextBlock
+                Margin="550,10,0,0"
+                HorizontalAlignment="Center"
+                FontSize="22"
+                Text="스타리버 PC Cafe" />
+            <Button
+                x:Name="MainWindowClose"
+                Width="20"
+                Margin="450,10"
+                Content="X"
+                PreviewMouseLeftButtonUp="MainWindowClose_MouseLeftButtonUp" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock
+                Margin="0,10"
+                HorizontalAlignment="Center"
+                FontSize="30">
+                메 뉴
+            </TextBlock>
+
+            <ListView>
+
+                <ListViewItem Style="{DynamicResource NavListViewStyle}">
+                    <TextBlock>MENU 0</TextBlock>
+                </ListViewItem>
+
+                <ListViewItem Style="{DynamicResource NavListViewStyle}">
+                    <TextBlock>MENU 1</TextBlock>
+                </ListViewItem>
+
+                <ListViewItem Style="{DynamicResource NavListViewStyle}">
+                    <TextBlock>MENU 2</TextBlock>
+                </ListViewItem>
+
+                <ListViewItem Style="{DynamicResource NavListViewStyle}">
+                    <TextBlock>MENU 3</TextBlock>
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
+        <views:foodPageMenu0 Grid.Row="1" Grid.Column="1" />
+        <ListView
+            Grid.Row="2"
+            Grid.Column="1"
+            Background="Green"
+            BorderThickness="0" />
+
+
+    </Grid>
+
+</Window>
