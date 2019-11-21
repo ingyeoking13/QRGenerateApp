@@ -31,20 +31,33 @@
             <RowDefinition Height="160" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+        <!--  상단 Title 바  -->
+        <Grid Grid.ColumnSpan="2" MouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown">
+            <Rectangle Width="1200" Height="40">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#FF57D3D8" />
+                        <GradientStop Offset="1" Color="#FF3FCED4" />
+                        <GradientStop Offset="0.466" Color="#FF10D0D8" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
             <TextBlock
-                Margin="550,10,0,0"
+                Margin="0,5,0,0"
                 HorizontalAlignment="Center"
                 FontSize="22"
                 Text="스타리버 PC Cafe" />
             <Button
                 x:Name="MainWindowClose"
                 Width="20"
-                Margin="450,10"
+                Margin="20,10"
+                HorizontalAlignment="Right"
                 Content="X"
                 PreviewMouseLeftButtonUp="MainWindowClose_MouseLeftButtonUp" />
-        </StackPanel>
+        </Grid>
 
+        <!--  메뉴 네비게이션  -->
         <StackPanel Grid.Row="1">
             <TextBlock
                 Margin="0,10"
@@ -72,12 +85,18 @@
                 </ListViewItem>
             </ListView>
         </StackPanel>
-        <views:foodPageMenu0 Grid.Row="1" Grid.Column="1" />
-        <ListView
+
+        <!--  구매 상품 디스플레이  -->
+        <views:foodPageMenu0
+            x:Name="foodPageMenu0controller"
+            Grid.Row="1"
+            Grid.Column="1" />
+
+        <!--  선택한 상품 디스플레이  -->
+        <views:TotalSelectedItemDisplayView
+            x:Name="totalSelectedItemDisplayView"
             Grid.Row="2"
-            Grid.Column="1"
-            Background="Green"
-            BorderThickness="0" />
+            Grid.Column="1" />
 
 
     </Grid>

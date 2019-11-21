@@ -8,14 +8,87 @@
     Width="900"
     Height="440"
     mc:Ignorable="d">
+    <UserControl.Resources>
+
+        <Style x:Key="foodPageMenuListBoxItemStyler" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border
+                            x:Name="Bd"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                    <Condition Property="IsSelected" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="Bd" Property="Background" Value="Transparent" />
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                    <Condition Property="IsSelected" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="Bd" Property="Background" Value="Transparent" />
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
 
     <Grid Background="Orange">
-        <ListBox ItemsSource="{Binding fileNames}">
+
+        <ListBox
+            x:Name="foodPageMenu0ListBox"
+            ItemContainerStyle="{DynamicResource foodPageMenuListBoxItemStyler}"
+            ItemsSource="{Binding orderItems}"
+            SelectionChanged="FoodPageMenu0ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Image Width="240" Source="{Binding}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Image
+                            Grid.RowSpan="2"
+                            Width="240"
+                            Height="240"
+                            Margin="10"
+                            Source="{Binding imageURL}" />
+                        <TextBlock Grid.Column="1" Text="{Binding KRW}" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding itemName}" />
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
         </ListBox>
     </Grid>
 </UserControl>

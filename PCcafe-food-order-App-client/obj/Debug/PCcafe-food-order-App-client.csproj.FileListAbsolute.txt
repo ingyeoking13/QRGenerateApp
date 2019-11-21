@@ -16,3 +16,5 @@ D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Debug\P
 D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Debug\Views\foodPageMenu0.g.cs
 D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Debug\Views\foodPageMenu0.baml
+D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Debug\Views\TotalSelectedItemDisplayView.g.cs
+D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Debug\Views\TotalSelectedItemDisplayView.baml
