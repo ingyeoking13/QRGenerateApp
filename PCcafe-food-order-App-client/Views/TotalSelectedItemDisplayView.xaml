@@ -19,10 +19,16 @@
         <ListBox x:Name="DisplayTotalSelectedItemListView" ItemsSource="{Binding selectedItemList}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding itemName}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding itemName}" />
+                        <TextBlock Text="{Binding Count}" />
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock x:Name="DisplayTotalPay" Grid.Column="1" />
+        <TextBlock
+            x:Name="DisplayTotalPay"
+            Grid.Column="1"
+            Text="{Binding bTotalAmount}" />
     </Grid>
 </UserControl>

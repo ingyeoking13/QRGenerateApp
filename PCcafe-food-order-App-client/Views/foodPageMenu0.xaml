@@ -57,8 +57,7 @@
         <ListBox
             x:Name="foodPageMenu0ListBox"
             ItemContainerStyle="{DynamicResource foodPageMenuListBoxItemStyler}"
-            ItemsSource="{Binding orderItems}"
-            SelectionChanged="FoodPageMenu0ListBox_SelectionChanged">
+            ItemsSource="{Binding orderItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -72,15 +71,22 @@
                         </Grid.RowDefinitions>
                         <Image
                             Grid.RowSpan="2"
-                            Width="240"
-                            Height="240"
+                            Width="220"
+                            Height="220"
                             Margin="10"
                             Source="{Binding imageURL}" />
-                        <TextBlock Grid.Column="1" Text="{Binding KRW}" />
-                        <TextBlock
-                            Grid.Row="1"
+                        <StackPanel
                             Grid.Column="1"
-                            Text="{Binding itemName}" />
+                            Grid.ColumnSpan="2"
+                            Margin="0,100,0,0">
+                            <TextBlock Text="{Binding KRW}" />
+                            <TextBlock Text="{Binding itemName}" />
+                            <Button
+                                x:Name="BuyThisItem"
+                                Command="{Binding cBuyThisItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding itemName}"
+                                Content="{Binding itemName}" />
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

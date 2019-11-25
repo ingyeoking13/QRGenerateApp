@@ -1,4 +1,6 @@
-﻿namespace PCcafe_food_order_App_client.Model
+﻿using PCcafe_food_order_App_client.Utils;
+
+namespace PCcafe_food_order_App_client.Model
 {
     public class OrderItem
     {
@@ -15,11 +17,21 @@
             this.ingredientsOrigin = ingredientsOrigin;
         }
     }
-    public class SelectedItem
+    public class SelectedItem : BindableBase
     {
         public string itemName { get; set; }
         public int KRW { get; set; }
-        public int Count { get; set; }
+
+        private int _count;
+        public int Count
+        {
+            get { return _count; }
+            set
+            {
+                _count = value;
+                OnPropertyChanged();
+            }
+        }
 
         public SelectedItem(string itemName, int kRW, int Count)
         {

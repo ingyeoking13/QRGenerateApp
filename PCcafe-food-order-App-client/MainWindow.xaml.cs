@@ -7,10 +7,8 @@ namespace PCcafe_food_order_App_client
 {
     public partial class MainWindow : Window
     {
-        //private List<OrderItem> totalSelectedItem = new List<OrderItem>();
-        public void changeObserver(List<OrderItem> items)
+        public void changeObserver(OrderItem items)
         {
-            //totalSelectedItem = items;
             totalSelectedItemDisplayView.SelectedItemListChanged(items);
         }
 

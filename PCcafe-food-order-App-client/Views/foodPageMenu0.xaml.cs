@@ -1,18 +1,22 @@
 ﻿using PCcafe_food_order_App_client.Model;
+using PCcafe_food_order_App_client.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace PCcafe_food_order_App_client.Views
 {
     public partial class foodPageMenu0 : UserControl
     {
-        public Action<List<OrderItem>> notifier;
+        public Action<OrderItem> notifier;
 
         public List<OrderItem> orderItems  { get; set; }
 
-        private List<OrderItem> _selected;
-        public List<OrderItem> Selected
+
+        private OrderItem _selected;
+        public OrderItem Selected
         {
             get { return _selected; }
             set {
@@ -20,6 +24,7 @@ namespace PCcafe_food_order_App_client.Views
                 notifier?.Invoke(value);
             }
         }
+        public ICommand cBuyThisItem { get; set; }
 
         public foodPageMenu0()
         {
@@ -34,12 +39,13 @@ namespace PCcafe_food_order_App_client.Views
                 new OrderItem( "/PCcafe-food-order-App-client;component/Resources/Images/순대.jpg", "순대", 5000),
                 new OrderItem ("/PCcafe-food-order-App-client;component/Resources/Images/햄버거.jpg", "햄버거", 4000)
             };
-
+            cBuyThisItem = new DelegateCommand(onBuyThisItem );
         }
-
-        private void FoodPageMenu0ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void onBuyThisItem(object param)
         {
-            Selected = new List<OrderItem>() { e.AddedItems[0] as OrderItem };
+            var str = param as string;
+            Selected = orderItems.First(i => i.itemName == param as string);
         }
+
     }
 }
