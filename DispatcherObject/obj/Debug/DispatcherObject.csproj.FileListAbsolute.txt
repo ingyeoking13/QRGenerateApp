@@ -1,0 +1,15 @@
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\bin\Debug\DispatcherObject.exe.config
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\bin\Debug\DispatcherObject.exe
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\bin\Debug\DispatcherObject.pdb
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.csprojAssemblyReference.cache
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\MainWindow.g.cs
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\App.g.cs
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject_MarkupCompile.cache
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject_MarkupCompile.lref
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\MainWindow.baml
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.g.resources
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.Properties.Resources.resources
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.csproj.GenerateResource.cache
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.csproj.CoreCompileInputs.cache
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.exe
+D:\source\WPFProject\WPFProjectPractice\DispatcherObject\obj\Debug\DispatcherObject.pdb
