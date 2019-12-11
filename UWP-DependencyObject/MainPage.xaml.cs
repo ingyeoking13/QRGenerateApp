@@ -12,6 +12,7 @@ namespace UWP_DependencyObject
         public MainPage()
         {
             this.InitializeComponent();
+            Button
         }
     }
 }

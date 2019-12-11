@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCcafe-food-order-App-clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yonah", "Yonah\Yonah.csproj", "{DACADECF-0F94-44DE-B314-121968737BFA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF-TIL Stuff", "WPF-TIL Stuff", "{077A0691-4ED6-4048-B106-9CE84EB9BD29}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows-XAML-FE-TIL", "Windows-XAML-FE-TIL", "{077A0691-4ED6-4048-B106-9CE84EB9BD29}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatcherObject", "DispatcherObject", "{3A6FA497-D0E8-466D-86FE-EC803F8C3E30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DispatcherObject", "DispatcherObject\DispatcherObject.csproj", "{E95381B8-BABC-40AA-8F43-742960C31E39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF-DispatcherObject", "DispatcherObject\WPF-DispatcherObject.csproj", "{E95381B8-BABC-40AA-8F43-742960C31E39}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependency Object", "Dependency Object", "{CD2BEFF3-C093-4F54-8AF0-C68F4298E704}"
 EndProject
