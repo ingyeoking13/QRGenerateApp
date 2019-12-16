@@ -13,45 +13,46 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <ListView ItemsSource="{Binding bsources}">
             <ListView.ItemTemplate>
                 <DataTemplate>
+                    <DataTemplate.Resources>
+                        <DrawingBrush
+                            x:Key="DB"
+                            Opacity="0"
+                            TileMode="Tile"
+                            Viewport="0 0 1 1"
+                            ViewportUnits="Absolute">
+                            <DrawingBrush.RelativeTransform>
+                                <RotateTransform Angle="45" />
+                            </DrawingBrush.RelativeTransform>
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Geometry>
+                                        <LineGeometry StartPoint="0,0" EndPoint="4,2" />
+                                    </GeometryDrawing.Geometry>
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Red" Thickness="4" />
+                                    </GeometryDrawing.Pen>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </DataTemplate.Resources>
+
                     <StackPanel Orientation="Horizontal">
                         <StackPanel.Style>
                             <Style TargetType="{x:Type StackPanel}">
+                                <Setter Property="Background" Value="{StaticResource DB}" />
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Checked}" Value="True">
-                                        <Setter Property="Background">
-                                            <Setter.Value>
-                                                <DrawingBrush
-                                                    x:Name="errorBrush"
-                                                    TileMode="Tile"
-                                                    Viewport="0 0 1 1"
-                                                    ViewportUnits="Absolute">
-                                                    <DrawingBrush.RelativeTransform>
-                                                        <RotateTransform Angle="45" />
-                                                    </DrawingBrush.RelativeTransform>
-                                                    <DrawingBrush.Drawing>
-                                                        <GeometryDrawing>
-                                                            <GeometryDrawing.Geometry>
-                                                                <LineGeometry StartPoint="0,0" EndPoint="4,2" />
-                                                            </GeometryDrawing.Geometry>
-                                                            <GeometryDrawing.Pen>
-                                                                <Pen Brush="Red" Thickness="4" />
-                                                            </GeometryDrawing.Pen>
-                                                        </GeometryDrawing>
-                                                    </DrawingBrush.Drawing>
-                                                </DrawingBrush>
-                                            </Setter.Value>
-                                        </Setter>
-
+                                    <DataTrigger Binding="{Binding HasError}" Value="True">
                                         <DataTrigger.EnterActions>
                                             <BeginStoryboard>
                                                 <Storyboard>
                                                     <DoubleAnimationUsingKeyFrames
-                                                        FillBehavior="Stop"
+                                                        FillBehavior="HoldEnd"
                                                         Storyboard.TargetProperty="Background.Opacity"
                                                         Duration="0:0:1">
                                                         <LinearDoubleKeyFrame KeyTime="0:0:0.0" Value="0.2" />
@@ -62,6 +63,13 @@
                                                 </Storyboard>
                                             </BeginStoryboard>
                                         </DataTrigger.EnterActions>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding HasError}" Value="false">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <DrawingBrush Opacity="0" />
+                                            </Setter.Value>
+                                        </Setter>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -75,6 +83,11 @@
             </ListView.ItemTemplate>
 
         </ListView>
+        <Button
+            Name="UpdateAnimation"
+            Grid.Row="1"
+            Click="UpdateAnimation_Click"
+            Content="Update Animation" />
         <Button
             Name="Sort"
             Grid.Row="2"

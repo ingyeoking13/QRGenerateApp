@@ -46,6 +46,13 @@ namespace Animation
                 state = true;
             }
         }
+
+        private void UpdateAnimation_Click(object sender, RoutedEventArgs e)
+        {
+            // update HasError
+            foreach( Person p in bsources)
+                p.HasError = p.Checked;
+        }
     }
     public class Person : INotifyPropertyChanged
     {
@@ -70,6 +77,15 @@ namespace Animation
             set { _Address = value; OnPropertyChagned(); }
         }
 
+        /// <summary>
+        /// added 
+        /// </summary>
+        private bool _HasError;
+        public bool HasError
+        {
+            get { return _HasError; }
+            set { _HasError = value; OnPropertyChagned(); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChagned([CallerMemberName] string name=null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
