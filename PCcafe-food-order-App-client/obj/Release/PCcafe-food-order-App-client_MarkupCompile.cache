@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\obj\Release\
+C:\Users\USER\Source\Repos\WPFpracticeProject\PCcafe-food-order-App-client\obj\Release\
 PCcafe_food_order_App_client
 none
 false
 TRACE
-D:\source\WPFProject\WPFProjectPractice\PCcafe-food-order-App-client\App.xaml
-2-1745236691
+C:\Users\USER\Source\Repos\WPFpracticeProject\PCcafe-food-order-App-client\App.xaml
+3-1004602833
 
-61805062938
+10154662029
 13-1505183044
-MainWindow.xaml;Views\foodPageMenu0.xaml;
+MainWindow.xaml;Views\foodPageMenu0.xaml;Views\TotalSelectedItemDisplayView.xaml;
 
 True
 
