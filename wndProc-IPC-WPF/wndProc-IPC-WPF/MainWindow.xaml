@@ -1,0 +1,27 @@
+﻿<Window x:Class="wndProc_IPC_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wndProc_IPC_WPF"
+        mc:Ignorable="d"
+        Title="WndProc-IPC-WPF" Height="450" Width="800">
+    <StackPanel>
+        <Button Name="AddHandler" Width="Auto" Height="100" Content="Add Handler to This Handle" Click="AddHandler_Click"></Button>
+        <Button Name="CreateNewProcess" Width="Auto" Height="100" Content="Create New Process Window" Click="CreateNewProcess_Click"></Button>
+        <Button Width="Auto" Height="100" Content="SendMessage To Another Process" Name="SendMessageBtn" Click="SendMessage_Click"></Button>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="MyHandle : "></TextBlock>
+            <TextBlock x:Name="DisplayMyProcessHandle" Margin="50 0 0 0"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Another Handle : "></TextBlock>
+            <TextBlock x:Name="DisplayAnotherProcessHandle" Margin="50 0 0 0"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Succed?"></TextBlock>
+            <TextBlock x:Name="DisplaySucceedOrNot" Margin="50 0 0 0"></TextBlock>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>

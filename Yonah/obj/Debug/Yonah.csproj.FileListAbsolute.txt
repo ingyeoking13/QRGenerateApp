@@ -1,0 +1,11 @@
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\bin\Debug\Yonah.dll
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\bin\Debug\Yonah.pdb
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah.csprojAssemblyReference.cache
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah_MarkupCompile.cache
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah_MarkupCompile.lref
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Themes\Yonah.Theme.Button.baml
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah.g.resources
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah.Properties.Resources.resources
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah.csproj.GenerateResource.cache
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah.dll
+C:\Users\USER\Source\Repos\WPFpracticeProject\Yonah\obj\Debug\Yonah.pdb
