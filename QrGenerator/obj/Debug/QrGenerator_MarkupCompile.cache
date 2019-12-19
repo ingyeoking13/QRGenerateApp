@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\USER\Source\Repos\WPFpracticeProject\QrGenerator\obj\Debug\
+D:\source\WPFProject\WPFProjectPractice\QrGenerator\obj\Debug\
 QrGenerator
 none
 false
 DEBUG;TRACE
-C:\Users\USER\Source\Repos\WPFpracticeProject\QrGenerator\App.xaml
+D:\source\WPFProject\WPFProjectPractice\QrGenerator\App.xaml
 41939498154
 
-8902763366
-19570526652
+92072775729
+192062043433
 Views\MainWindow.xaml;Views\Modal\ExitAppModal.xaml;Views\Modal\InformModal.xaml;Views\QRCodeView.xaml;
 
-False
+True
 
