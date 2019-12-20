@@ -42,7 +42,7 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-*/obj/
-*/bin/
-*/debug/
-*/release/
+**/obj/
+**/bin/
+**/debug/
+**/release/
