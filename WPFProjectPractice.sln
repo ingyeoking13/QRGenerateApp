@@ -28,6 +28,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animation", "Animation\Animation.csproj", "{9E75436C-4D36-49CE-A136-7E75090DC5BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ComboBox", "ComboBox", "{7B164D8F-EAB3-4AA7-BB72-02AD0DB69370}"
+	ProjectSection(SolutionItems) = preProject
+		ComboBox\Readme.md = ComboBox\Readme.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox\ComboBox.csproj", "{5FA0CABD-0F5B-48E1-A608-BA0B4172E4BF}"
 EndProject

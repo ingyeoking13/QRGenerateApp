@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj": {}
+    "C:\\Users\\USER\\Source\\Repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj": {
+    "C:\\Users\\USER\\Source\\Repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj",
         "projectName": "UWP-DependencyObject",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj",
+        "projectPath": "C:\\Users\\USER\\Source\\Repos\\WPFpracticeProject\\UWP-DependencyObject\\UWP-DependencyObject.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\WPFpracticeProject\\UWP-DependencyObject\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Source\\Repos\\WPFpracticeProject\\UWP-DependencyObject\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
