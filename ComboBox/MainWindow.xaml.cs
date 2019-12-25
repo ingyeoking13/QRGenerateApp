@@ -2,52 +2,73 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace ComboBox
 {
-    public class Student  : INotifyPropertyChanged
+    public class Student : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private string _name;
-        private int _ClassId;
+        private string _ClassId;
+        private int _age;
+        public int Age
+        {
+            get { return _age; }
+            set { _age = value; OnPropertyChanged(); }
+        }
 
-        public string name
+        public string Name
         {
             get { return _name; }
             set { _name = value; OnPropertyChanged(); }
         }
-        public int ClassId
+        public string ClassId
         {
             get { return _ClassId; }
             set { _ClassId = value; OnPropertyChanged(); }
         }
-        public Student(string name, int classId)
+        public Student(string name, string classId, int age)
         {
-            this.name = name;
+            this.Name = name;
             this.ClassId = classId;
+            this.Age = age;
         }
         private void OnPropertyChanged([CallerMemberName]string propertyName = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
+
     public partial class MainWindow : Window
     {
-        public ObservableCollection<Student> os { get; set; } = new ObservableCollection<Student>();
-        public ICollectionView desc_os { get { return CollectionViewSource.GetDefaultView(os); } }
+        public ObservableCollection<Student> StudentList { get; set; } = new ObservableCollection<Student>();
+        public ListCollectionView GStudentList { get { return CollectionViewSource.GetDefaultView(StudentList) as ListCollectionView; } }
         public MainWindow()
         {
-            desc_os.GroupDescriptions.Add(new PropertyGroupDescription(nameof(Student.ClassId)));
+            GStudentList.GroupDescriptions.Add(new PropertyGroupDescription(nameof(Student.ClassId)));
+            GStudentList.SortDescriptions.Add(new SortDescription(nameof(Student.Age), ListSortDirection.Ascending));
+            GStudentList.SortDescriptions.Add(new SortDescription(nameof(Student.Name), ListSortDirection.Ascending));
 
-            os.Add(new Student("A1", 1));
-            os.Add(new Student("A2", 1));
-            os.Add(new Student("A3", 1));
-            os.Add(new Student("B1", 2));
-            os.Add(new Student("B2", 2));
-            os.Add(new Student("B3", 2));
-            os.Add(new Student("C1", 3));
+            GStudentList.IsLiveGrouping = true;
+            GStudentList.IsLiveSorting = true;
+
+            StudentList.Add(new Student("Tom", "Junior", 20));
+            StudentList.Add(new Student("djm03178", "Elite", 31));
+            StudentList.Add(new Student("Mike", "Expert", 44));
+            StudentList.Add(new Student("tourist", "Elite", 55));
+            StudentList.Add(new Student("Amok", "Elite", 55));
+            StudentList.Add(new Student("Dotory", "Elite", 55));
+            StudentList.Add(new Student("Radewoosh", "Elite", 21));
+            StudentList.Add(new Student("gaelim", "Junior", 33));
 
             InitializeComponent();
             DataContext = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var ns = new Student(NAMETB.Text, (CLASSCB.SelectedItem as ComboBoxItem).Content as string, int.Parse(AGETB.Text));
+            StudentList.Add(ns);
         }
     }
 }
