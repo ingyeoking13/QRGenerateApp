@@ -1,0 +1,181 @@
+﻿<Window
+    x:Class="Kmong_Lotto_Number_Comparison.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Kmong_Lotto_Number_Comparison"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://www.codeplex.com/prism"
+    Title="MainWindow"
+    Width="800"
+    Height="600"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    AllowsTransparency="True"
+    Background="Transparent"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    ResizeMode="CanResizeWithGrip"
+    TextElement.FontFamily="{StaticResource NanumBarunGothic}"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Border
+            Grid.RowSpan="200"
+            Background="{DynamicResource MaterialDesignBackground}"
+            CornerRadius="10 10 0 0" />
+        <materialDesign:ColorZone
+            Padding="0,16,0,30"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            CornerRadius="5 5 0 0"
+            Mode="PrimaryDark">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="50,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="20">
+                    번호 추출기
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Width="100"
+                Margin="0,30,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BJobOnWorkOriginBtn}"
+                materialDesign:ButtonProgressAssist.Value="-1"
+                Command="{Binding CFileOpenOriginGame}"
+                CommandParameter="Origin"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="원본 입력">
+                _원본 입력
+            </Button>
+
+            <ListView
+                Grid.Row="1"
+                Margin="20,80,20,0"
+                ItemsSource="{Binding OriginGames}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="10,0,0,0" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Margin="0,0,0,0" Text="{Binding [0]}" />
+                            <TextBlock Text="{Binding [1]}" />
+                            <TextBlock Text="{Binding [2]}" />
+                            <TextBlock Text="{Binding [3]}" />
+                            <TextBlock Text="{Binding [4]}" />
+                            <TextBlock Text="{Binding [5]}" />
+                        </StackPanel>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button
+                Grid.Column="1"
+                Margin="0,30,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BJobOnWorkExceptBtn}"
+                materialDesign:ButtonProgressAssist.Value="2"
+                Command="{Binding CFileOpenOriginGame}"
+                CommandParameter="Erase"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="제외수 입력">
+                _제외수 입력
+            </Button>
+
+            <ListView
+                Grid.Column="1"
+                Margin="20,80,0,0"
+                ItemsSource="{Binding ExceptGames}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="10,0,0,0" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Margin="0,0,0,0" Text="{Binding [0]}" />
+                            <TextBlock Text="{Binding [1]}" />
+                            <TextBlock Text="{Binding [2]}" />
+                            <TextBlock Text="{Binding [3]}" />
+                            <TextBlock Text="{Binding [4]}" />
+                            <TextBlock Text="{Binding [5]}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Column="2" Margin="20,30,20,0">
+                <StackPanel.Resources>
+                    <Style BasedOn="{StaticResource MaterialDesignFlatMidBgButton}" TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="0,10,0,0" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </StackPanel.Resources>
+                <Button
+                    Margin="0,0,0,0"
+                    Command="{Binding CEraseSameNumber}"
+                    CommandParameter="3"
+                    Content="3 동일 수 제거" />
+                <Button
+                    Command="{Binding CEraseSameNumber}"
+                    CommandParameter="4"
+                    Content="4 동일 수 제거" />
+                <Button
+                    Command="{Binding CEraseSameNumber}"
+                    CommandParameter="5"
+                    Content="5 동일 수 제거" />
+                <Button
+                    Command="{Binding CEraseSameNumber}"
+                    CommandParameter="6"
+                    Content="6 동일 수 제거" />
+
+                <Button Margin="0,50,0,0" Content="5 중복 100개 이상인 것 추출" />
+                <Button Content="5 중복 6개인 것 추출" />
+                <Button Content="5 동일 5개인 것 추출" />
+                <Button Content="5 중복 4개인 것 추출" />
+                <Button Content="5 중복 3개인 것 추출" />
+                <Button Margin="0,30,0,0" Content="저장" />
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                Text="{Binding OriginGamesCnt}" />
+            <TextBlock
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                Text="{Binding ExceptGamesCnt}" />
+        </Grid>
+    </Grid>
+</Window>
