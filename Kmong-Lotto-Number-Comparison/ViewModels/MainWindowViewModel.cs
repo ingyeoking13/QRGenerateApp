@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -42,6 +43,12 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
             get { return _ExceptGamseCnt; }
             set { SetProperty(ref _ExceptGamseCnt, value); }
         }
+        private object _ModalPage;
+        public object ModalPage
+        {
+            get { return _ModalPage; }
+            set { SetProperty(ref _ModalPage, value); }
+        }
 
 
         public ICommand CFileOpenOriginGame { get; set; }
@@ -60,10 +67,38 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
             set { SetProperty(ref JobOnWorkExcept, value); }
         }
 
-        private DelegateCommand<int> _CEraseSameNumber;
-        public DelegateCommand<int> CEraseSameNumber =>
-            _CEraseSameNumber ?? (_CEraseSameNumber = new DelegateCommand<int>(OnEraseSameNumber));
+        private DelegateCommand<string> _CEraseSameNumber;
+        public DelegateCommand<string> CEraseSameNumber =>
+            _CEraseSameNumber ?? (_CEraseSameNumber = new DelegateCommand<string>(OnEraseSameNumber));
 
+        private DelegateCommand _CSaveGameList;
+        public DelegateCommand CSaveGameList =>
+            _CSaveGameList ?? (_CSaveGameList = new DelegateCommand(ExecuteCSaveGameList));
+
+        void ExecuteCSaveGameList()
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "텍스트 파일 (*.txt)|*txt";
+            if (dlg.ShowDialog() == true)
+            {
+                using(StreamWriter sw = new StreamWriter(dlg.FileName, false))
+                {
+                    foreach (var item in OriginGames)
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (var c in item)
+                        {
+                            if (c < 10) sb.Append('0');
+                            sb.Append(c);
+                            sb.Append(" ");
+                        }
+                        sb.Remove(sb.Length-1,1);
+                        sw.WriteLine(sb.ToString());
+                    }
+                }
+            }
+        }
 
 
         public MainWindowViewModel()
@@ -114,7 +149,7 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
                         while (!sr.EndOfStream)
                         {
                             string oneLine = await sr.ReadLineAsync();
-                            string[] values = oneLine.Split(' ');
+                            string[] values = oneLine.Split(new char[2]{ ' ', '\t'});
 
                             List<byte> temp = new List<byte>();
 
@@ -147,41 +182,56 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
             }
         }
 
-        private void OnEraseSameNumber(int param)
+        private async void OnEraseSameNumber(string sparam)
         {
-            byte[] table = new byte[100];
-            for (int idx = 0; idx<OriginGames.Count; )
+            int param = int.Parse(sparam);
+            ObservableCollection<List<byte>> bb = new ObservableCollection<List<byte>>();
+
+            bool[] table = new bool[100];
+
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Tick += (s, e) =>
             {
-                bool letsErase =  false;
-                foreach(List<byte> oList in ExceptGames)
+                OriginGamesCnt = bb.Count;
+            };
+            dt.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            dt.Start();
+
+            ModalPage = new PopupViewModel();
+
+            await Task.Run(() =>
+            {
+                for (int idx = 0; idx < OriginGames.Count; idx++)
                 {
+
                     var list = OriginGames[idx];
+                    foreach( var item in list) table[item] = true;
+                    bool letsErase = false;
 
-                    int opportunity = 6; 
-                    for (int i=0; i<6; i++)
+                    foreach (List<byte> oList in ExceptGames)
                     {
-                        byte cur = list[i];
-                        bool matched = false;
-                        for (int j=0; j<6; j++)
-                        {
-                            matched |= cur == oList[j];
-                        }
+                        int matchCount = 0;
+                        foreach (var item in oList) if (table[item]) matchCount++;
 
-                        if (matched == false) opportunity--;
-                        if (opportunity < param)
+                        if (matchCount == param)
                         {
                             letsErase = true;
                             break;
                         }
                     }
-                }
-                if (letsErase)
-                {
-                    OriginGames.RemoveAt(idx);
-                }
-                else idx++;
-            }
+                    foreach (var item in list) table[item] = false;
 
+                    if (letsErase == false)
+                    {
+                        bb.Add(OriginGames[idx]);
+                    }
+                }
+
+            });
+            dt.Stop();
+            OriginGames = bb;
+            OriginGamesCnt = bb.Count;
+            ModalPage = null;
         }
     }
 }
