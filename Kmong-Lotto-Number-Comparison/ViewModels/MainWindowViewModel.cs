@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -30,7 +29,6 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
         }
 
         private int _OriginGamesCnt;
-
         public int OriginGamesCnt
         {
             get { return _OriginGamesCnt; }
@@ -49,8 +47,6 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
             get { return _ModalPage; }
             set { SetProperty(ref _ModalPage, value); }
         }
-
-
         public ICommand CFileOpenOriginGame { get; set; }
 
         private bool JobOnWork;
@@ -99,7 +95,6 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
                 }
             }
         }
-
 
         public MainWindowViewModel()
         {
