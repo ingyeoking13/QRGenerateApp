@@ -32,9 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ComboBox", "ComboBox", "{7B
 		ComboBox\Readme.md = ComboBox\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox\ComboBox.csproj", "{5FA0CABD-0F5B-48E1-A608-BA0B4172E4BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox-grouping-visible", "ComboBox\ComboBox-grouping-visible.csproj", "{5FA0CABD-0F5B-48E1-A608-BA0B4172E4BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kmong-Lotto-Number-Comparison", "Kmong-Lotto-Number-Comparison\Kmong-Lotto-Number-Comparison.csproj", "{23B1CCEC-A8D0-4568-80F5-CDF86AF2738D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combobox-SelectedItem-PropertyChange", "Combobox-SelectedItem-PropertyChange\Combobox-SelectedItem-PropertyChange.csproj", "{EEEA62A9-7F91-485F-8062-E7966094878B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -366,6 +368,36 @@ Global
 		{23B1CCEC-A8D0-4568-80F5-CDF86AF2738D}.Release|x64.Build.0 = Release|Any CPU
 		{23B1CCEC-A8D0-4568-80F5-CDF86AF2738D}.Release|x86.ActiveCfg = Release|Any CPU
 		{23B1CCEC-A8D0-4568-80F5-CDF86AF2738D}.Release|x86.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|Any CPU.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|ARM.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|ARM.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|ARM64.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|ARM64.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|x64.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|x64.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|x86.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.AppVeyor|x86.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|ARM.Build.0 = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|x64.Build.0 = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Debug|x86.Build.0 = Debug|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|ARM.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|ARM64.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|x64.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|x64.Build.0 = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|x86.ActiveCfg = Release|Any CPU
+		{EEEA62A9-7F91-485F-8062-E7966094878B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -380,6 +412,7 @@ Global
 		{9E75436C-4D36-49CE-A136-7E75090DC5BA} = {A50826DD-DB94-4CEC-A943-4481E5E9D464}
 		{7B164D8F-EAB3-4AA7-BB72-02AD0DB69370} = {077A0691-4ED6-4048-B106-9CE84EB9BD29}
 		{5FA0CABD-0F5B-48E1-A608-BA0B4172E4BF} = {7B164D8F-EAB3-4AA7-BB72-02AD0DB69370}
+		{EEEA62A9-7F91-485F-8062-E7966094878B} = {7B164D8F-EAB3-4AA7-BB72-02AD0DB69370}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFF7C2C2-E3E3-4D00-87ED-681E8F9E04E2}
