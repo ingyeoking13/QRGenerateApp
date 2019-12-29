@@ -1,10 +1,12 @@
-﻿using Microsoft.Win32;
+﻿using Kmong_Lotto_Number_Comparison.Model;
+using Microsoft.Win32;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -71,6 +73,17 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
         public DelegateCommand CSaveGameList =>
             _CSaveGameList ?? (_CSaveGameList = new DelegateCommand(ExecuteCSaveGameList));
 
+        private DelegateCommand<IFiveSameLogic> _FiveSameLogic;
+        public DelegateCommand<IFiveSameLogic> FiveSameLogic =>
+            _FiveSameLogic ?? (_FiveSameLogic = new DelegateCommand<IFiveSameLogic>(OnFiveSameLogic));
+
+        async void OnFiveSameLogic(IFiveSameLogic logicModel)
+        {
+            ModalPage = new PopupViewModel();
+            await Task.Run(() => logicModel.doCalc(originGames.ToList()));
+            ModalPage = null;
+        }
+
         void ExecuteCSaveGameList()
         {
             SaveFileDialog dlg = new SaveFileDialog();
@@ -98,7 +111,9 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
 
         public MainWindowViewModel()
         {
+            ModalPage = new PopupViewModel();
             CFileOpenOriginGame = new DelegateCommand<string>(OnFileOpenOriginGame);
+            ModalPage = null;
         }
 
         private async void OnFileOpenOriginGame(string param)

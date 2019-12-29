@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="clr-namespace:Kmong_Lotto_Number_Comparison.Model"
     xmlns:popup="clr-namespace:Kmong_Lotto_Number_Comparison.Popups"
     xmlns:prism="http://www.codeplex.com/prism"
     xmlns:vm="clr-namespace:Kmong_Lotto_Number_Comparison.ViewModels"
@@ -166,11 +167,39 @@
                     CommandParameter="6"
                     Content="6 동일 수 제거" />
 
-                <Button Margin="0,50,0,0" Content="5 중복 100개 이상인 것 추출" />
-                <Button Content="5 중복 6개인 것 추출" />
-                <Button Content="5 동일 5개인 것 추출" />
-                <Button Content="5 중복 4개인 것 추출" />
-                <Button Content="5 중복 3개인 것 추출" />
+                <Button
+                    Margin="0,50,0,0"
+                    Command="{Binding FiveSameLogic}"
+                    Content="5 중복 100개 이상인 것 추출">
+                    <Button.CommandParameter>
+                        <md:sameHundred />
+                    </Button.CommandParameter>
+                </Button>
+                <Button Command="{Binding FiveSameLogic}" Content="5 중복 7개인 것 추출">
+                    <Button.CommandParameter>
+                        <md:sameSeven />
+                    </Button.CommandParameter>
+                </Button>
+                <Button Command="{Binding FiveSameLogic}" Content="5 중복 6개인 것 추출">
+                    <Button.CommandParameter>
+                        <md:sameSix />
+                    </Button.CommandParameter>
+                </Button>
+                <Button Command="{Binding FiveSameLogic}" Content="5 동일 5개인 것 추출">
+                    <Button.CommandParameter>
+                        <md:sameFive />
+                    </Button.CommandParameter>
+                </Button>
+                <Button Command="{Binding FiveSameLogic}" Content="5 중복 4개인 것 추출">
+                    <Button.CommandParameter>
+                        <md:sameFour />
+                    </Button.CommandParameter>
+                </Button>
+                <Button Command="{Binding FiveSameLogic}" Content="5 중복 3개인 것 추출">
+                    <Button.CommandParameter>
+                        <md:samethree />
+                    </Button.CommandParameter>
+                </Button>
                 <Button
                     Margin="0,30,0,0"
                     Command="{Binding CSaveGameList}"
