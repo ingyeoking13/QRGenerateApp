@@ -34,39 +34,39 @@ namespace Kmong_Lotto_Number_Comparison.Model
                 new  StreamWriter($"./result-7.txt", true ),
                 new  StreamWriter($"./result-100.txt", true ),
             };
-for (int i=0; i<numberList.Count; i++)
-{
-    var list = numberList[i];
-    foreach (var key in combiGenerator.Gen(list))
-    {
-        int count = 0;
-        IList<byte> shouldBeInList = key.Item1;
-        byte donotSame = key.Item2;
-
-        for (int j = i + 1; j < numberList.Count; j++)
-        {
-            var compareList = numberList[j];
-            bool[] isThere = new bool[100];
-
-            foreach (var k in compareList) isThere[k] = true;
-
-            // should be same all
-            bool same = true;
-            foreach (var k in shouldBeInList)
+            for (int i=0; i<numberList.Count; i++)
             {
-                same &= isThere[k];
-                if (!same) break;
-            }
-            if (!same) continue;
+                var list = numberList[i];
+                foreach (var key in combiGenerator.Gen(list))
+                {
+                    int count = 0;
+                    IList<byte> shouldBeInList = key.Item1;
+                    byte donotSame = key.Item2;
 
-            // last one should be diff
-            same &= !isThere[donotSame];
+                    for (int j = i + 1; j < numberList.Count; j++)
+                    {
+                        var compareList = numberList[j];
+                        bool[] isThere = new bool[100];
 
-            if (same)
-            {
-                count++;
-            }
-        }
+                        foreach (var k in compareList) isThere[k] = true;
+
+                        // should be same all
+                        bool same = true;
+                        foreach (var k in shouldBeInList)
+                        {
+                            same &= isThere[k];
+                            if (!same) break;
+                        }
+                        if (!same) continue;
+
+                        // last one should be diff
+                        same &= !isThere[donotSame];
+
+                        if (same)
+                        {
+                            count++;
+                        }
+                    }
 
 
                     if ( count == 2 || count == 3 || count == 4|| count == 5 || count == 6 || count == 7 || count >= 100) 

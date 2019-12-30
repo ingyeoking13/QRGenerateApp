@@ -10,8 +10,8 @@
     xmlns:prism="http://www.codeplex.com/prism"
     xmlns:vm="clr-namespace:Kmong_Lotto_Number_Comparison.ViewModels"
     Title="MainWindow"
-    Width="800"
-    Height="600"
+    Width="900"
+    Height="700"
     prism:ViewModelLocator.AutoWireViewModel="True"
     AllowsTransparency="True"
     Background="Transparent"
@@ -63,26 +63,41 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button
-                Width="100"
+
+            <StackPanel
                 Margin="0,30,0,0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-                materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BJobOnWorkOriginBtn}"
-                materialDesign:ButtonProgressAssist.Value="-1"
-                Command="{Binding CFileOpenOriginGame}"
-                CommandParameter="Origin"
-                Foreground="White"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
-                ToolTip="원본 입력">
-                _원본 입력
-            </Button>
+                Orientation="Horizontal">
+                <Button
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BJobOnWorkOriginBtn}"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    Command="{Binding CFileOpenOriginGame}"
+                    CommandParameter="Origin"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="원본 입력">
+                    _원본 입력
+                </Button>
+                <Button
+                    Width="50"
+                    Margin="30,0,0,0"
+                    VerticalAlignment="Top"
+                    Command="{Binding EraseList}"
+                    CommandParameter="원본"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="원본 초기화">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="DeleteAlert" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
 
-            <ListView
-                Grid.Row="1"
-                Margin="20,80,20,0"
-                ItemsSource="{Binding OriginGames}">
+            <ListView Margin="20,80,20,0" ItemsSource="{Binding OriginGames}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -103,21 +118,39 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button
+            <StackPanel
                 Grid.Column="1"
                 Margin="0,30,0,0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-                materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BJobOnWorkExceptBtn}"
-                materialDesign:ButtonProgressAssist.Value="2"
-                Command="{Binding CFileOpenOriginGame}"
-                CommandParameter="Erase"
-                Foreground="White"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
-                ToolTip="제외수 입력">
-                _제외수 입력
-            </Button>
+                Orientation="Horizontal">
+
+                <Button
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BJobOnWorkExceptBtn}"
+                    materialDesign:ButtonProgressAssist.Value="2"
+                    Command="{Binding CFileOpenOriginGame}"
+                    CommandParameter="Erase"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="제외수 입력">
+                    _제외수 입력
+                </Button>
+                <Button
+                    Width="50"
+                    Margin="30,0,0,0"
+                    VerticalAlignment="Top"
+                    Command="{Binding EraseList}"
+                    CommandParameter="제외수"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="제외수 초기화">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="DeleteAlert" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
 
             <ListView
                 Grid.Column="1"

@@ -76,6 +76,22 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
         private DelegateCommand<IFiveSameLogic> _FiveSameLogic;
         public DelegateCommand<IFiveSameLogic> FiveSameLogic =>
             _FiveSameLogic ?? (_FiveSameLogic = new DelegateCommand<IFiveSameLogic>(OnFiveSameLogic));
+        private DelegateCommand<string> _EraseList;
+        public DelegateCommand<string> EraseList =>
+            _EraseList ?? (_EraseList = new DelegateCommand<string>(OnEraseList));
+
+        void OnEraseList(string param)
+        {
+            if (param.Equals("제외수"))
+            {
+                if (ExceptGames != null) ExceptGames = new ObservableCollection<List<byte>>();
+            }
+            else if (param.Equals("원본"))
+            {
+                if (OriginGames != null) OriginGames = new ObservableCollection<List<byte>>();
+            }
+
+        }
 
         async void OnFiveSameLogic(IFiveSameLogic logicModel)
         {
@@ -123,19 +139,24 @@ namespace Kmong_Lotto_Number_Comparison.ViewModels
             dlg.DefaultExt = ".txt";
             dlg.Filter = "텍스트 파일 (*.txt)|*txt";
 
+            if ( OriginGames == null)
+                OriginGames = new ObservableCollection<List<byte>>();
+            if( ExceptGames == null)
+                ExceptGames = new ObservableCollection<List<byte>>();
+
             ObservableCollection<List<byte>> bb = new ObservableCollection<List<byte>>();
             // when Open Dlg
             if (dlg.ShowDialog() == true)
             {
                 if (param.Equals("Origin"))
                 {
+                    foreach (var item in OriginGames) bb.Add(item);
                     BJobOnWorkOriginBtn = true;
-                    OriginGames = new ObservableCollection<List<byte>>();
                 }
-                else if ( param.Equals("Erase"))
+                else if (param.Equals("Erase"))
                 {
+                    foreach (var item in ExceptGames) bb.Add(item);
                     BJobOnWorkExceptBtn = true;
-                    ExceptGames = new ObservableCollection<List<byte>>();
                 }
 
                 DispatcherTimer dt= new DispatcherTimer();
