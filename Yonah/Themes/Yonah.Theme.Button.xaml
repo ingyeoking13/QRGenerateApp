@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="YonahButton" TargetType="{x:Type ButtonBase}" />
-    using System;
+    <!--using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
@@ -91,9 +91,9 @@ namespace PageBuilder.Data
             {
                 List
                                     <standardEventHandler>listHandler = _dicEventHandlers[opname];
-                // notification실행 도중 unregister호출하는 경우에 대비하기 위해 foreach --> for 수정(예: GraphicHTMLTextBox);
+                // notification실행 도중 unregister호출하는 경우에 대비하기 위해 foreach -> for 수정(예: GraphicHTMLTextBox);
                 int cnt = listHandler.Count;
-                for (int i = cnt - 1; i >= 0; i--)
+                for (int i = cnt - 1; i >= 0; i-)
                 {
                     standardEventHandler handler = listHandler[i];
                     try
@@ -123,7 +123,7 @@ namespace PageBuilder.Data
                                                 <T>( object sender , NotifyEventArgs e)
             => postNotification(typeof(T).Name, sender, e);
     }
-}
+}-->
 </ResourceDictionary>
 
 
