@@ -1,16 +1,29 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using Kmong_Simple_LoginPage.Infrastructure;
+using Kmong_Simple_LoginPage.MessageDef;
+using Kmong_Simple_LoginPage.View;
 
 namespace Kmong_Simple_LoginPage.ViewModel
 {
-    public static class INotifyPropertyChangedExtension
+    public class MainWindowViewModel  : BindableBase
     {
-        public static void SetValue<T>(this INotifyPropertyChanged instance, T value, )
-    }
+        private object _currentView;
+        private readonly EventAggregator eventAggregator;
 
-    public class MainWindowViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string propName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        public object BCurrentView 
+        { 
+            get { return _currentView; }
+            set { SetProperty(ref _currentView, value); }
+        }
+
+        public MainWindowViewModel(EventAggregator _eventAggregator)
+        {
+            BCurrentView = new LoginView(_eventAggregator);
+            eventAggregator = _eventAggregator;
+
+            eventAggregator.GetEvent<GoToNextPage>().Subscribe(() =>
+            {
+                BCurrentView = new PageOne(eventAggregator);
+            });
+        }
     }
 }
