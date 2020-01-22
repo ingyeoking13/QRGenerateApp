@@ -57,12 +57,15 @@
     </ApplicationDefinition>
     <Compile Include="Infrastructure\BindableBase.cs" />
     <Compile Include="Infrastructure\EventAggregator.cs" />
+    <Compile Include="MessageDef\ChangeMenuIntoGimbop.cs" />
+    <Compile Include="MessageDef\ChangeMenuIntoNoodle.cs" />
     <Compile Include="MessageDef\CloseModal.cs" />
     <Compile Include="MessageDef\GoToNextPage.cs" />
     <Compile Include="MessageDef\OpenModal.cs" />
     <Compile Include="Modal\ModalPage.xaml.cs">
       <DependentUpon>ModalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ListViewItemModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PageOneViewModel.cs" />
     <Compile Include="View\LoginView.xaml.cs">
