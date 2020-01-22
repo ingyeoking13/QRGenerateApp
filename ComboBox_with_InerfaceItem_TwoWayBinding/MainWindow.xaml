@@ -14,12 +14,29 @@
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <ComboBox ItemsSource="{Binding Items, Mode=TwoWay}" SelectedItem="{Binding comboBoxSelectedItem}">
+            <ComboBox ItemsSource="{Binding Items}" SelectedItem="{Binding comboBoxSelectedItem, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Converter={StaticResource myConv}}" />
                     </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
+            <ComboBox ItemsSource="{Binding CollectionViewItems}" SelectedItem="{Binding comboBoxSelectedItem, Mode=TwoWay}">
+                <ComboBox.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ComboBox.GroupStyle>
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Converter={StaticResource myConv}}" />
+                    </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <DockPanel Margin="0,50,0,0">

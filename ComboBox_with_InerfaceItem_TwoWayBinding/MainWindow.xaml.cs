@@ -14,6 +14,9 @@ namespace ComboBox_with_InerfaceItem_TwoWayBinding
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         public ObservableCollection<IGroupable> Items { get; set; }
+        public ListCollectionView CollectionViewItems { 
+            get { return CollectionViewSource.GetDefaultView(Items) as ListCollectionView; } 
+        }
 
         private IGroupable _comboBoxSelectedItem;
         public IGroupable comboBoxSelectedItem 
@@ -41,6 +44,7 @@ namespace ComboBox_with_InerfaceItem_TwoWayBinding
         {
             InitializeComponent();
             DataContext = this;
+
             Items = new ObservableCollection<IGroupable>();
 
             var p = new Person("JOHN");
@@ -61,8 +65,10 @@ namespace ComboBox_with_InerfaceItem_TwoWayBinding
 
             a = new Animal("DOG");
             ca = new Groupable<Animal>(a);
-
             Items.Add(ca);
+
+            CollectionViewItems.GroupDescriptions.Add(new PropertyGroupDescription("Group"));
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -78,7 +84,8 @@ namespace ComboBox_with_InerfaceItem_TwoWayBinding
 
     public class Groupable<T> : IGroupable where T : class
     {
-        public T _Target; 
+        public T _Target;
+        public string Group => this.Target.GetType() == typeof(Person) ? "Person" : "Animal";
         public T Target
         {
             get { return _Target; }
