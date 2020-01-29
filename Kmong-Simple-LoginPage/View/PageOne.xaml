@@ -93,18 +93,11 @@
                                     <Button
                                         Grid.Column="1"
                                         Width="100"
-                                        Margin="5,5,115,5"
-                                        HorizontalAlignment="Right"
-                                        Click="Button_Click"
-                                        Content="Button 1" />
-
-                                    <Button
-                                        Grid.Column="1"
-                                        Width="100"
                                         Margin="5"
                                         HorizontalAlignment="Right"
-                                        Click="Button_Click"
-                                        Content="Button 2" />
+                                        Command="{Binding DataContext.COpenModal, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding}"
+                                        Content="Button 1" />
                                 </Grid>
                             </ControlTemplate>
                         </Setter.Value>
