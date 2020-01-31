@@ -48,7 +48,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox_with_InerfaceItem_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kmong-Simple-LoginPage", "Kmong-Simple-LoginPage\Kmong-Simple-LoginPage.csproj", "{87BB0EA0-A04A-4932-B240-1E823AEE51D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateClass", "CreateClass\CreateClass.csproj", "{C6E639A9-3B93-4BF1-8E34-BECDBF682657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateClass", "CreateClass\CreateClass.csproj", "{C6E639A9-3B93-4BF1-8E34-BECDBF682657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Partial Class Property Test", "Partial Class Property Test\Partial Class Property Test.csproj", "{083FB363-A120-4822-ACA6-FEA93784897A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -560,6 +562,36 @@ Global
 		{C6E639A9-3B93-4BF1-8E34-BECDBF682657}.Release|x64.Build.0 = Release|Any CPU
 		{C6E639A9-3B93-4BF1-8E34-BECDBF682657}.Release|x86.ActiveCfg = Release|Any CPU
 		{C6E639A9-3B93-4BF1-8E34-BECDBF682657}.Release|x86.Build.0 = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|Any CPU.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|Any CPU.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|ARM.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|ARM.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|ARM64.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|ARM64.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|x64.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|x64.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|x86.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.AppVeyor|x86.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|x64.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Debug|x86.Build.0 = Debug|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|ARM.Build.0 = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|ARM64.Build.0 = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|x64.ActiveCfg = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|x64.Build.0 = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|x86.ActiveCfg = Release|Any CPU
+		{083FB363-A120-4822-ACA6-FEA93784897A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
